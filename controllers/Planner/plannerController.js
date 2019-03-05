@@ -1,36 +1,36 @@
-const User = require('../models/User.js');
-const { Chirp } = require('../models/Chirp.js');
+const User = require('../models/User');
+const { Event } = require('../models/Planner');
 
 const userController = {
     index: (req, res) => {
         // Show all users
         User.find()
-            .populate('chirps')
+            .populate('events')
             .then(users => {
-                res.render('users/index', {users})
+                res.send("Plan Index")
             })
     },
     new: (req, res) => {
-        res.render('users/new')
+        res.send("Plan New")
     },
     create: (req, res) => {
         User.create({
             email: req.body.email,
             password: req.body.password
         }).then(user => {
-            res.redirect(`/users/${user._id}`)
+            res.send("Plan Edit")
         })
     },
     show: (req, res) => {
         User.findById(req.params.userId)
-            .populate('chirps')
+            .populate('events')
             .then(user => {
-                res.render('users/show', {user})
+                res.send('Plan Show')
             })
     },
     delete: (req, res) => {
         User.findByIdAndDelete(req.params.userId).then(() => {
-            res.send(`Deleted user with user id of ${req.params.userId}`)
+            res.send('Plan Delete')
         })
     }
 }

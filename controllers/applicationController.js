@@ -1,10 +1,10 @@
-const { Event } = require("../models/Chirp")
+const { Event } = require("../models/Planner")
 
 const applicationController = {
     index: (req, res) => {
       Chirp.find().then(chirps => {
         console.log(chirps)
-        res.render('app/index', {chirps})
+        res.send("app Index")
       })
     }
   }
