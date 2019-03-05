@@ -1,5 +1,5 @@
-const User = require('../models/User');
-const { Personnel } = require('../models/Personnel');
+const User = require('../../models/User');
+const { Personnel } = require('../../models/Personnel');
 
 const userController = {
     index: (req, res) => {

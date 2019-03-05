@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^6.20",
+    "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "hbs": "^4.0.2",
     "method-override": "^3.0.0",

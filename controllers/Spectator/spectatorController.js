@@ -1,5 +1,5 @@
-const User = require('../models/User');
-const { Event } = require('../models/Spectator');
+const User = require('../../models/User');
+const { Event } = require('../../models/Spectator');
 
 const userController = {
     index: (req, res) => {
