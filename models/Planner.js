@@ -40,5 +40,5 @@ const Event = new Schema({
 
 module.exports = {
     Event: mongoose.model("Event", Event),
-    Review: mongoose.model("Review", Review)
+    // Review: mongoose.model("Review", Review)
 };

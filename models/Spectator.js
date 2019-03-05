@@ -34,5 +34,5 @@ const Spectator = new Schema({
 
 module.exports = {
     Event: mongoose.model("Spectator", Spectator),
-    Review: mongoose.model("Review", Review)
+    // Review: mongoose.model("Review", Review)
 };

@@ -34,7 +34,7 @@ const Statement = new Schema({
     reviews: [Review]
 });
 
-module.exports = {
+module.exports ={
     Statement: mongoose.model("Statement", Statement),
-    Review: mongoose.model("Review", Review)
+    // Review: mongoose.model("Review", Review)
 };

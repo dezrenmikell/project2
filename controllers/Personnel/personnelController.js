@@ -28,6 +28,22 @@ const userController = {
                 res.send('Person Show')
             })
     },
+    edit: (req, res) => {
+        Event.findById(req.params.eventId)
+        .then(event => {
+            res.render('events/edit', {
+                event,
+                userId: req.params.userId,
+                eventId: req.params.eventId
+            })
+        })
+    },
+    update: (req, res) => {
+        Event.findByIdAndUpdate(req.params.eventId, {content: req.body.content}, {new: true}).then(updatedEvent => {
+            res.redirect(`/users/${req.params.userId}/events/${req.params.eventId}`)
+        })
+    },
+
     delete: (req, res) => {
         User.findByIdAndDelete(req.params.userId).then(() => {
             res.send('Person Delete')

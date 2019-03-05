@@ -28,6 +28,18 @@ const userController = {
                 res.send('Plan Show')
             })
     },
+    edit: (req, res) => {
+        Chirp.findById(req.params.eventId)
+        .then(event => {
+            res.send('Plan Edit')
+        })
+    },
+    update: (req, res) => {
+        Event.findByIdAndUpdate(req.params.eventId, {content: req.body.content}, {new: true}).then(updatedEvent => {
+            res.redirect(`/users/${req.params.userId}/events/${req.params.eventId}`)
+        })
+    },
+
     delete: (req, res) => {
         User.findByIdAndDelete(req.params.userId).then(() => {
             res.send('Plan Delete')
