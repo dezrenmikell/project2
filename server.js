@@ -1,7 +1,8 @@
 const express = require('express')
 const app = express()
-const router = require('./routes/index.js')
 const methodOverride = require('method-override')
+const logger = require('morgan')
+const routes = require('./routes/index.js')
 
 app.set('view engine', 'hbs')
 app.use(express.static(__dirname + '/public')); // VERY IMPORTANT!! Make sure to add a '/'
@@ -11,6 +12,7 @@ app.use(express.static(__dirname + '/public')); // VERY IMPORTANT!! Make sure to
 // so method="POST" can become method="PATCH"
 
 app.use(methodOverride('_method'))
+app.use(logger('dev'))
 
 // These following two lines are how we use
 // express' built-in body-parser to handle form submissions
@@ -20,11 +22,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-app.use('/', router)
+app.use('/', routes)
 
 // process.env.PORT is necessary for deployment to Heroku
-// If environment variable is not provided, default to 27017
-const PORT = process.env.PORT || 27017
+// If environment variable is not provided, default to 3000
+const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {
   console.log(`Server is listening on PORT: ${PORT}`)
