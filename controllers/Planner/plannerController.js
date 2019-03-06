@@ -9,7 +9,7 @@ const plannerController = {
             })
     },
     new: (req, res) => {
-        res.render('personnel/new', {
+        res.render('planner/new', {
             userId: req.params.userId
         })
     },

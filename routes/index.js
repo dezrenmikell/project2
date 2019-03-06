@@ -36,19 +36,19 @@ router.put('/users/:userId/events/:eventId', plannerController.update)
 router.delete('/users/:userId/events/:eventId', plannerController.delete)
 
 //Personnel routes
-router.get('/users/:userId/skills', personnelController.index)
+router.get('/users/:userId/statements', personnelController.index)
 
-router.get('/users/:userId/skills/new', personnelController.new)
+router.get('/users/:userId/statements/new', personnelController.new)
 
-router.post('/users/:userId/skills', personnelController.create)
+router.post('/users/:userId/statements', personnelController.create)
 
-router.get('/users/:userId/skills/:skillId', personnelController.show)
+router.get('/users/:userId/statements/:statementId', personnelController.show)
 
-router.get('/users/:userId/skills/:skillId/edit', personnelController.edit)
+router.get('/users/:userId/statement/:statementId/edit', personnelController.edit)
 
-router.put('/users/:userId/skills/:skillId', personnelController.update)
+router.put('/users/:userId/statement/:statementId', personnelController.update)
 
-router.delete('/users/:userId/skills/:skillId', personnelController.delete)
+router.delete('/users/:userId/statement/:statementId', personnelController.delete)
 
 //Spectator routes
 router.get('/users/:userId/events/:eventId/spectators', spectatorController.index)

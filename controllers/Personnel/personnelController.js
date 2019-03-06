@@ -4,56 +4,57 @@ const { Planner } = require('../../models/Planner');
 
 const personnelController = {
     index: (req, res) => {
-        // Show all users
-        User.find()
-            
-            .then(users => {
-                res.send("Person Index")
+        User.findById(req.params.userId)
+            .then(() => {
+                res.send(user.skills)
             })
     },
     new: (req, res) => {
-        res.send("Person New")
+        res.render('personnel/new', {
+            userId: req.params.userId
+        })
     },
     create: (req, res) => {
-        User.create({
-            email: req.body.email,
-            password: req.body.password
-        }).then(user => {
-            res.send("Person Edit")
+        User.findById(req.params.userId)
+        .then(user =>{
+            Statement.create({
+            content: req.body.content,
+            reviews: [{content: 'This is so cool'}]
         })
+        .then(newStatement => {
+            user.skills.push(newStatement)
+            user.save()
+            res.redirect(`/users/${req.params.userId}/events`)
+        })
+    })
     },
     show: (req, res) => {
         User.findById(req.params.userId)
-            
+           
             .then(user => {
-                res.send('Person Show')
+                res.render('personnel/show')
             })
     },
     edit: (req, res) => {
-        Event.findById(req.params.eventId)
-        // .then(event => {
-            // res.render('events/edit', {
-            //     event,
-            //     userId: req.params.userId,
-            //     eventId: req.params.eventId
-            // })
-        // })
-        
-        res.send("person edit")
+        Personnel.Statement.findById(req.params.statementId)
+        .then(statement => {
+            res.render('personnel/edit', {
+                statement,
+                userId: req.params.userId,
+                statementId: req.params.statementId
+            })
+        })
     },
     update: (req, res) => {
-        Event.findByIdAndUpdate(req.params.eventId, {content: req.body.content}, {new: true}).then(updatedEvent => {
-        //     res.redirect(`/users/${req.params.userId}/events/${req.params.eventId}`)
-        res.send('person update')
-    
-    })
-
-        
+        Personnel.Statement.findByIdAndUpdate(req.params.statementId, {content: req.body.content}, {new: true}).then(updatedStatement => {
+            res.redirect(`/users/${req.params.userId}/statements/${req.params.statementId}`)
+        })
     },
 
     delete: (req, res) => {
-        User.findByIdAndDelete(req.params.userId).then(() => {
-            res.send('Person Delete')
+        Personnel.Statement.findByIdAndDelete(req.params.statementId).then(() => {
+            console.log('deleted event')
+            res.redirect(`/users/${req.params.userId}/statements`)
         })
     }
 }
