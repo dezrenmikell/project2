@@ -1,0 +1,16 @@
+<h1>hello from single event</h1>
+
+
+<div class="card">
+    <div class="card-content">
+        <p>
+            {{event.content}}
+        </p>
+        <a href="/users/{{userId}}/events/{{event._id}}/edit">
+            <button class="btn pink">Edit</button>
+        </a>
+        <form action="/users/{{userId}}/events/{{event._id}}?_method=DELETE" method="POST">
+            <button class="btn pink">Delete</button>
+        </form>
+    </div>
+</div>

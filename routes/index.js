@@ -51,18 +51,18 @@ router.put('/users/:userId/skills/:skillId', personnelController.update)
 router.delete('/users/:userId/skills/:skillId', personnelController.delete)
 
 //Spectator routes
-router.get('/users/:userId/interests', spectatorController.index)
+router.get('/users/:userId/events/:eventId/spectators', spectatorController.index)
 
-router.get('/users/:userId/intersts/new', spectatorController.new)
+router.get('/users/:userId/events/:eventId/spectators/new', spectatorController.new)
 
-router.post('/users/:userId/interests', spectatorController.create)
+router.post('/users/:userId/events/:eventId/spectators', spectatorController.create)
 
-router.get('/users/:userId/interesrts/:interestId', spectatorController.show)
+router.get('/users/:userId/events/:eventId/spectators/:spectatorId', spectatorController.show)
 
-router.get('/users/:userId/interests/:interstId/edit', spectatorController.edit)
+router.get("/users/:userId/events/:eventId/spectators/edit", spectatorController.edit)
 
-router.put('/users/:userId/interests/:interestId', spectatorController.update)
+router.put('/users/:userId/events/:eventId/spectators/:spectatorId', spectatorController.update)
 
-router.delete('/users/:userId/intersts/:interstId', spectatorController.delete)
+router.delete('/users/:userId/events/:eventId/spectators/:spectatorId', spectatorController.delete)
 
 module.exports = router;
