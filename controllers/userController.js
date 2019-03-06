@@ -1,5 +1,5 @@
 const User = require('../models/User');
-const { Planner } = require('../models/Planner');
+const { Event } = require('../models/Planner');
 
 const userController = {
     index: (req, res) => {
@@ -10,26 +10,25 @@ const userController = {
             
     },
     new: (req, res) => {
-        res.send("User New")
+        res.render('users/new')
     },
     create: (req, res) => {
         User.create({
             email: req.body.email,
             password: req.body.password
         }).then(user => {
-            res.send("User Edit")
+            res.redirect(`/users/${user._id}`)
         })
     },
     show: (req, res) => {
         User.findById(req.params.userId)
-            .populate('events')
             .then(user => {
-                res.send('User Show')
+                res.render('users/show', {user})
             })
     },
     delete: (req, res) => {
         User.findByIdAndDelete(req.params.userId).then(() => {
-            res.send('User Delete')
+            res.send(`Deleted user with user id of ${req.params.userId}`)
         })
     }
 }
