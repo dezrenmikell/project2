@@ -13,20 +13,22 @@ User.deleteMany()
         return User.create({
             email: 'brock@gmail.com',
             password: 'brock',
-            type: "planner"
+            typez: "planner"
         })
     })
 //create events for the first user ()   
     .then(brock=>{
         const event1Promise = Planner.Event.create({
             name: "Paint and Sip",
-            content: "An Interactive Paint and Sip event with Poetry"
+            content: "An Interactive Paint and Sip event with Poetry",
+            author: User._id
         }).then(event => {
             brock.events.push(event)
          })
         const event2Promise = Planner.Event.create({
             name: 'Day Party',
-            content: 'A party to promote Poetry Pins'
+            content: 'A party to promote Poetry Pins',
+            author: User._id
         }).then(event=>{
             brock.events.push(event)
         })
@@ -39,20 +41,21 @@ User.deleteMany()
     return User.create({
         email: 'juice@gmail.com',
         password: 'juice',
-        type: "planner"
+        typez: "planner"
     })
 })
 //create events for second user
     .then(juice=>{
         const event1Promise = Planner.Event.create({
             name: "Paint and Sip",
-            content: "An Interactive Paint and Sip event with Poetry"
-        }).then(event => {
+            content: "An Interactive Paint and Sip event with Poetry",
+            author: User._id        }).then(event => {
             juice.events.push(event)
          })
         const event2Promise = Planner.Event.create({
             name: 'Dopetea and Poetry',
             content: 'A poetry event featuring Dopetea( A brand of tea by Poet-tea and Odinero that contains Kava and Kratom.',
+            author: User._id
         }).then(event=>{
             juice.events.push(event)
         })
@@ -65,7 +68,7 @@ User.deleteMany()
     return User.create({
         email: 'odinero@gmail.com',
         password: 'odinero',
-        type: "planner"
+        typez: "planner"
     })
 })
 //create events for the third user
@@ -73,13 +76,15 @@ User.deleteMany()
         const event1Promise = Planner.Event.create({
             name: "Smoke and Paint",
             content: "An Interactive Paint and performance event that includes models, singers, dancers, Hip Hop artists, and more.",
+            author: User._id
         }).then(event => {
             odinero.events.push(event)
          })
         const event2Promise = Planner.Event.create({
             name: 'Dopetea and Poetry',
             content: 'A poetry event featuring Dopetea( A brand of tea by Poet-tea and Odinero that contains Kava and Kratom.',
-       }).then(event=>{
+            author: User._id
+        }).then(event=>{
             odinero.events.push(event)
         })
         return Promise.all([event1Promise, event2Promise]).then(()=> {
@@ -91,7 +96,7 @@ User.deleteMany()
     return User.create({
         email: 'jadeMuse@gmail.com',
         password: 'jade',
-        type: "personnel"
+        typez: "personnel"
     })
 })
 //create events for fourth user (personnel)
@@ -99,13 +104,14 @@ User.deleteMany()
         const event1Promise = Planner.Event.create({
             name: "Smoke and Paint",
             content: "An Interactive Paint and performance event that includes models, singers, dancers, Hip Hop artists, and more.",
-
+            
         }).then(event => {
             jadeMuse.events.push(event)
          })
         const event2Promise = Planner.Event.create({
             name: 'Dopetea and Poetry',
             content: 'A poetry event featuring Dopetea( A brand of tea by Poet-tea and Odinero that contains Kava and Kratom.',
+            
         }).then(event=>{
             jadeMuse.events.push(event)
         })
@@ -118,31 +124,33 @@ User.deleteMany()
     return User.create({
         email: 'gaia@gmail.com',
         password: 'gaia',
-        type: "spectator"
+        typez: "spectator"
     })
 })
     .then(gaia=>{
         const event1Promise = Planner.Event.create({
             name: "Paint and Sip",
-            content: "An Interactive Paint and Sip event with Poetry"
-        }).then(event => {
+            content: "An Interactive Paint and Sip event with Poetry",
+                   }).then(event => {
             gaia.events.push(event)
          })
         const event2Promise = Planner.Event.create({
             name: 'Day Party',
-            content: 'A party to promote Poetry Pins'
-        }).then(event=>{
+            content: 'A party to promote Poetry Pins',
+                    }).then(event=>{
             gaia.events.push(event)
         })
         const event3Promise = Planner.Event.create({
             name: 'Dopetea and Poetry',
             content: 'A poetry event featuring Dopetea( A brand of tea by Poet-tea and Odinero that contains Kava and Kratom.',
+            
         }).then(event=>{
             gaia.events.push(event)
         })
         const event4Promise = Planner.Event.create({
             name: "Smoke and Paint",
             content: "An Interactive Paint and performance event that includes models, singers, dancers, Hip Hop artists, and more.",
+            
         }).then(event=>{
             gaia.events.push(event)
         })

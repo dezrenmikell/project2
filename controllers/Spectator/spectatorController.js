@@ -1,11 +1,12 @@
 const User = require('../../models/User');
-const { Event } = require('../../models/Spectator');
+const { Spectator} = require('../../models/Spectator');
+const { Planner } = require('../../models/Planner');
 
-const userController = {
+const spectatorController = {
     index: (req, res) => {
         // Show all users
         User.find()
-            .populate('events')
+            
             .then(users => {
                 res.send("Spec Index")
             })
@@ -23,7 +24,7 @@ const userController = {
     },
     show: (req, res) => {
         User.findById(req.params.userId)
-            .populate('events')
+            
             .then(user => {
                 res.send('Spec Show')
             })
@@ -51,4 +52,4 @@ const userController = {
     }
 }
 
-module.exports = userController
+module.exports = spectatorController

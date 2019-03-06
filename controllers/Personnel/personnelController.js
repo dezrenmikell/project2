@@ -1,11 +1,12 @@
 const User = require('../../models/User');
 const { Personnel } = require('../../models/Personnel');
+const { Planner } = require('../../models/Planner');
 
-const userController = {
+const personnelController = {
     index: (req, res) => {
         // Show all users
         User.find()
-            .populate('events')
+            
             .then(users => {
                 res.send("Person Index")
             })
@@ -23,7 +24,7 @@ const userController = {
     },
     show: (req, res) => {
         User.findById(req.params.userId)
-            .populate('events')
+            
             .then(user => {
                 res.send('Person Show')
             })
@@ -57,4 +58,4 @@ const userController = {
     }
 }
 
-module.exports = userController
+module.exports = personnelController

@@ -4,8 +4,9 @@ const { Planner } = require('../models/Planner');
 const userController = {
     index: (req, res) => {
         // Show all users
-        
-                res.send("User Index")
+            User.find()
+            .populate('events')
+                res.render('users/index', {users})
             
     },
     new: (req, res) => {
