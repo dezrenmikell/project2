@@ -10,6 +10,7 @@ const User = new Schema({
     password: String,
     website: String,
     phone: Number,
+    type: String,
     events: [
       {
         type: Schema.Types.ObjectId,
