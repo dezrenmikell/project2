@@ -20,6 +20,7 @@ User.deleteMany()
 //create events for the first user ()   
     .then(brock=>{
         const event1Promise = Planner.Event.create({
+            eventId: _id,
             name: "Paint and Sip",
             content: "An Interactive Paint and Sip event with Poetry",
             author: User._id
@@ -27,6 +28,7 @@ User.deleteMany()
             brock.events.push(event)
          })
         const event2Promise = Planner.Event.create({
+            eventId: _id,
             name: 'Day Party',
             content: 'A party to promote Poetry Pins',
             author: User._id
@@ -49,12 +51,14 @@ User.deleteMany()
 //create events for second user
     .then(juice=>{
         const event1Promise = Planner.Event.create({
+            eventId: _id,
             name: "Paint and Sip",
             content: "An Interactive Paint and Sip event with Poetry",
             author: User._id        }).then(event => {
             juice.events.push(event)
          })
         const event2Promise = Planner.Event.create({
+            eventId: _id,
             name: 'Dopetea and Poetry',
             content: 'A poetry event featuring Dopetea( A brand of tea by Poet-tea and Odinero that contains Kava and Kratom.',
             author: User._id
@@ -77,6 +81,7 @@ User.deleteMany()
 //create events for the third user
     .then(odinero=>{
         const event1Promise = Planner.Event.create({
+            eventId: _id,
             name: "Smoke and Paint",
             content: "An Interactive Paint and performance event that includes models, singers, dancers, Hip Hop artists, and more.",
             author: User._id
@@ -84,6 +89,7 @@ User.deleteMany()
             odinero.events.push(event)
          })
         const event2Promise = Planner.Event.create({
+            eventId: _id,
             name: 'Dopetea and Poetry',
             content: 'A poetry event featuring Dopetea( A brand of tea by Poet-tea and Odinero that contains Kava and Kratom.',
             author: User._id
@@ -106,6 +112,7 @@ User.deleteMany()
 //create events for fourth user (personnel)
     .then(jadeMuse=>{
         const event1Promise = Planner.Event.create({
+            eventId: _id,
             name: "Smoke and Paint",
             content: "An Interactive Paint and performance event that includes models, singers, dancers, Hip Hop artists, and more.",
             
@@ -113,6 +120,7 @@ User.deleteMany()
             jadeMuse.events.push(event)
          })
         const event2Promise = Planner.Event.create({
+            eventId: _id,
             name: 'Dopetea and Poetry',
             content: 'A poetry event featuring Dopetea( A brand of tea by Poet-tea and Odinero that contains Kava and Kratom.',
             
@@ -134,12 +142,14 @@ User.deleteMany()
 })
     .then(gaia=>{
         const event1Promise = Planner.Event.create({
+            eventId: _id,
             name: "Paint and Sip",
             content: "An Interactive Paint and Sip event with Poetry",
                    }).then(event => {
             gaia.events.push(event)
          })
         const event2Promise = Planner.Event.create({
+            eventId: _id,
             name: 'Day Party',
             content: 'A party to promote Poetry Pins',
                     }).then(event=>{

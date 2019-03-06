@@ -15,6 +15,7 @@ const Review = new Schema({
 });
 
 const Event = new Schema({
+    eventId: Number ,
     name: String,
     content: String,
     createdAt:{

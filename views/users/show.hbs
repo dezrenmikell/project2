@@ -1,4 +1,4 @@
-<h3>{{user.name}'s Event's</h3>
+<h3>{{user.name}}'s Event's</h3>
 <a href="/users/{{user._id}}/events/new">
   <button class="btn small">Create Event</button>
 </a>
@@ -12,7 +12,7 @@
       </a>
     </div>
     <div class="card-action">
-      <a href="/user/{{ author.id }}" class="">{{ author.local.email }}</a>
+      <a href="/user/{{ author.id }}" class="">{{ author.local.name }}</a>
       <span class="event__date">{{ createdAt }}</span>
       <span class="event_reviews">{{ reviews.length }} Reviews</span>
     </div>

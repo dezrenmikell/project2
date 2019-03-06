@@ -2,6 +2,7 @@ const mongoose = require("../db/connection");
 const Schema = mongoose.Schema;
 
 const Review = new Schema({
+     
     content: String,
     rating: Number,
     createdAt: {
