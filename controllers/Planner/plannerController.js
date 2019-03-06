@@ -49,7 +49,7 @@ const plannerController = {
     },
     update: (req, res) => {
         Planner.Event.findByIdAndUpdate(req.params.eventId, {content: req.body.content}, {new: true}).then(updatedEvent => {
-            res.redirect(`/users/${req.params.userId}/events/${req.params.eventId}`)
+            res.redirect(`/users/${req.params.userId}/events`)
         })
     },
 
