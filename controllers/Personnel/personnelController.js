@@ -30,18 +30,24 @@ const userController = {
     },
     edit: (req, res) => {
         Event.findById(req.params.eventId)
-        .then(event => {
-            res.render('events/edit', {
-                event,
-                userId: req.params.userId,
-                eventId: req.params.eventId
-            })
-        })
+        // .then(event => {
+            // res.render('events/edit', {
+            //     event,
+            //     userId: req.params.userId,
+            //     eventId: req.params.eventId
+            // })
+        // })
+        
+        res.send("person edit")
     },
     update: (req, res) => {
         Event.findByIdAndUpdate(req.params.eventId, {content: req.body.content}, {new: true}).then(updatedEvent => {
-            res.redirect(`/users/${req.params.userId}/events/${req.params.eventId}`)
-        })
+        //     res.redirect(`/users/${req.params.userId}/events/${req.params.eventId}`)
+        res.send('person update')
+    
+    })
+
+        
     },
 
     delete: (req, res) => {
