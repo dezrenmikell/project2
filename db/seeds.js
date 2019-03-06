@@ -11,6 +11,7 @@ User.deleteMany()
 //create first User(planner)    
     .then(()=>{
         return User.create({
+            name: "B-Roc(k)",
             email: 'brock@gmail.com',
             password: 'brock',
             typez: "planner"
@@ -39,6 +40,7 @@ User.deleteMany()
 //create the second user (planner)   
 .then(()=>{
     return User.create({
+        name:"Juice Leroy",
         email: 'juice@gmail.com',
         password: 'juice',
         typez: "planner"
@@ -66,6 +68,7 @@ User.deleteMany()
 //create third user(planner)
 .then(()=>{
     return User.create({
+        name:"Odinero",
         email: 'odinero@gmail.com',
         password: 'odinero',
         typez: "planner"
@@ -94,6 +97,7 @@ User.deleteMany()
 //create fourth user (personnel)
 .then(()=>{
     return User.create({
+        name: "Jade Muse",
         email: 'jadeMuse@gmail.com',
         password: 'jade',
         typez: "personnel"
@@ -122,6 +126,7 @@ User.deleteMany()
 //create fourth user
 .then(()=>{
     return User.create({
+        name: "Hi I'm Gaia",
         email: 'gaia@gmail.com',
         password: 'gaia',
         typez: "spectator"

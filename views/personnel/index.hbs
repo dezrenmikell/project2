@@ -1,0 +1,22 @@
+<main>
+	<h2>{{userid}}'s Statements!</h2>
+
+		
+		{{#each user.statements}}
+
+
+			<div class="statement-container">
+
+				
+				
+				   <a href "/{{id}}"> {{user.name}}</a>>  
+					<img src={{img}} alt={{user.name}}>
+				<p> {{statement}}  </p>
+
+			</div>
+
+		
+		
+{{/each}}
+
+</main>
