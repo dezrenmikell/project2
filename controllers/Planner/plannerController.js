@@ -33,7 +33,7 @@ const plannerController = {
         User.findById(req.params.userId)
            
             .then(user => {
-                res.send('Plan Show')
+                res.render('planner/show')
             })
            
     },
