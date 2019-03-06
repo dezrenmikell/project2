@@ -23,8 +23,8 @@ app.use(express.json());
 app.use('/', router)
 
 // process.env.PORT is necessary for deployment to Heroku
-// If environment variable is not provided, default to 3000
-const PORT = process.env.PORT || 3000
+// If environment variable is not provided, default to 27017
+const PORT = process.env.PORT || 27017
 
 app.listen(PORT, () => {
   console.log(`Server is listening on PORT: ${PORT}`)
