@@ -7,9 +7,9 @@ const User = new Schema({
     name: String,
     phone: Number,
     email: String,
+    image: String,
     password: String,
     website: String,
-    phone: Number,
     typez: String,
     events: [
       {

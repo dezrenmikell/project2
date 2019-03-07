@@ -1,17 +1,16 @@
 <main>
 	<h2>{{name}}'s Events!</h2>
- {{events}}
-		
-		{{#each events}}
+        
+        {{#each events}}
 
 
 			<div class="event-container">
 
 				
-				{{name}}
-				   <a href "/{{id}}"> {{name}}</a>  
-					{{!-- <img src={{img}} alt={{user.name}}> --}}
-				{{!-- <p> {{review}}  </p> --}}
+				{{event.name}}
+				   <a href "/users/{{userId}}"> {{name}}</a>  
+					<img src={{image}} alt={{event.name}}> 
+				<p> {{review}}  </p>
 
 			</div>
 

@@ -1,12 +1,12 @@
 const User = require('../models/User')
 const Personnel = require('../models/Personnel')
-const {Planner} = require('../models/Planner')
+const {Event} = require('../models/Planner')
 const Spectator = require('../models/Spectator')
 // const {Event} = require('../models/Event')
 //clear database so there won't be repeats
 User.deleteMany()
     .then(()=>{
-        return Planner.Event.deleteMany()
+        return Event.deleteMany()
     })
 //create first User(planner)    
     .then(()=>{
@@ -19,14 +19,14 @@ User.deleteMany()
     })
 //create events for the first user ()   
     .then(brock=>{
-        const event1Promise = Planner.Event.create({
+        const event1Promise = Event.create({
             name: "Paint and Sip",
             content: "An Interactive Paint and Sip event with Poetry",
             author: User._id
         }).then(event => {
             brock.events.push(event)
          })
-        const event2Promise = Planner.Event.create({
+        const event2Promise = Event.create({
             name: 'Day Party',
             content: 'A party to promote Poetry Pins',
             author: User._id
@@ -48,14 +48,14 @@ User.deleteMany()
 })
 //create events for second user
     .then(juice=>{
-        const event1Promise = Planner.Event.create({
+        const event1Promise = Event.create({
             
             name: "Paint and Sip",
             content: "An Interactive Paint and Sip event with Poetry",
             author: User._id        }).then(event => {
             juice.events.push(event)
          })
-        const event2Promise = Planner.Event.create({
+        const event2Promise = Event.create({
             
             name: 'Dopetea and Poetry',
             content: 'A poetry event featuring Dopetea( A brand of tea by Poet-tea and Odinero that contains Kava and Kratom.',
@@ -78,7 +78,7 @@ User.deleteMany()
 })
 //create events for the third user
     .then(odinero=>{
-        const event1Promise = Planner.Event.create({
+        const event1Promise = Event.create({
             
             name: "Smoke and Paint",
             content: "An Interactive Paint and performance event that includes models, singers, dancers, Hip Hop artists, and more.",
@@ -86,7 +86,7 @@ User.deleteMany()
         }).then(event => {
             odinero.events.push(event)
          })
-        const event2Promise = Planner.Event.create({
+        const event2Promise = Event.create({
             
             name: 'Dopetea and Poetry',
             content: 'A poetry event featuring Dopetea( A brand of tea by Poet-tea and Odinero that contains Kava and Kratom.',
@@ -109,7 +109,7 @@ User.deleteMany()
 })
 //create events for fourth user (personnel)
     .then(jadeMuse=>{
-        const event1Promise = Planner.Event.create({
+        const event1Promise = Event.create({
             
             name: "Smoke and Paint",
             content: "An Interactive Paint and performance event that includes models, singers, dancers, Hip Hop artists, and more.",
@@ -117,7 +117,7 @@ User.deleteMany()
         }).then(event => {
             jadeMuse.events.push(event)
          })
-        const event2Promise = Planner.Event.create({
+        const event2Promise = Event.create({
             
             name: 'Dopetea and Poetry',
             content: 'A poetry event featuring Dopetea( A brand of tea by Poet-tea and Odinero that contains Kava and Kratom.',
@@ -139,28 +139,28 @@ User.deleteMany()
     })
 })
     .then(gaia=>{
-        const event1Promise = Planner.Event.create({
+        const event1Promise = Event.create({
             
             name: "Paint and Sip",
             content: "An Interactive Paint and Sip event with Poetry",
                    }).then(event => {
             gaia.events.push(event)
          })
-        const event2Promise = Planner.Event.create({
+        const event2Promise = Event.create({
            
             name: 'Day Party',
             content: 'A party to promote Poetry Pins',
                     }).then(event=>{
             gaia.events.push(event)
         })
-        const event3Promise = Planner.Event.create({
+        const event3Promise = Event.create({
             name: 'Dopetea and Poetry',
             content: 'A poetry event featuring Dopetea( A brand of tea by Poet-tea and Odinero that contains Kava and Kratom.',
             
         }).then(event=>{
             gaia.events.push(event)
         })
-        const event4Promise = Planner.Event.create({
+        const event4Promise = Event.create({
             name: "Smoke and Paint",
             content: "An Interactive Paint and performance event that includes models, singers, dancers, Hip Hop artists, and more.",
             

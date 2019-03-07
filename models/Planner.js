@@ -10,7 +10,7 @@ const Review = new Schema({
     },
     author: {
         type: Schema.Types.ObjectId,
-        ref: "User"
+        ref: "Event"
     }
 });
 
