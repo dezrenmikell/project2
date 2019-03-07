@@ -3,12 +3,12 @@
     {{#each events}}
       <div class="card">
         <div class="card-content">
-          <a class="card-title" href="/event/{{id}}">
+          <a class="card-title" href="/users/{{id}}">
             {{ content }}
           </a>
         </div>
         <div class="card-action">
-          <a href="/user/{{ author.id }}" class="">{{ author.local.email }}</a>
+          <a href="/user/{{ author._id }}" class="">{{ email }}</a>
           <span class="event__date">{{ createdAt }}</span>
           <span class="event_reviews">{{ reviews.length }} Comments</span>
         </div>

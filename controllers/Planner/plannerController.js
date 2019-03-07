@@ -41,6 +41,7 @@ const plannerController = {
 
   show: (req, res) => {
     User.findById(req.params.userId)
+    .populate('events')
     .then(() => {
       res.render("planner/show", {
         event,
