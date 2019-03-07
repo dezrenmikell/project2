@@ -4,12 +4,12 @@
 <div class="card">
     <div class="card-content">
         <p>
-            {{event}}
+            {{events}}
         </p>
-        <a href="/users/{{userId}}/events/{{event._id}}/edit">
+        <a href="/users/{{userId}}/events/{{eventId}}/edit">
             <button class="btn pink">Edit</button>
         </a>
-        <form action="/users/{{userId}}/events/{{event._id}}?_method=DELETE" method="POST">
+        <form action="/users/{{userId}}/events/{{eventId}}?_method=DELETE" method="POST">
             <button class="btn pink">Delete</button>
         </form>
     </div>

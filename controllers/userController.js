@@ -14,6 +14,7 @@ const userController = {
     },
     create: (req, res) => {
         User.create({
+            name: req.body.name,
             email: req.body.email,
             password: req.body.password
         }).then(user => {

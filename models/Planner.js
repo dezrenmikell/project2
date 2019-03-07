@@ -18,6 +18,7 @@ const Event = new Schema({
     eventId: Number ,
     name: String,
     content: String,
+    image: String,
     createdAt:{
         type: Date,
         default: Date.now()

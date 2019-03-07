@@ -14,7 +14,7 @@ const User = new Schema({
     events: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Planner"
+        ref: "Event"
         // ref means reference another model. In this case it's called Chirp
         // We'll come back around to the concept of references in a later lesson.
       }

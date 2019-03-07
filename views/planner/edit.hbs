@@ -1,16 +1,9 @@
-<h1>Create an event!</h1>
-
-
-<div class="card">
-    <div class="card-content">
-        <p>
-            {{event.content}}
-        </p>
-        <a href="/users/{{userId}}/events/new">
-            <button class="btn pink">Edit</button>
-        </a>
-        <form action="/users/{{userId}}/events/?_method=DELETE" method="POST">
-            <button class="btn pink">Delete</button>
-        </form>
+<form action="/users/{{userId}}/events/{{eventId}}?_method=PUT" method="POST">
+    <div>
+        <input type="text" name="name" value="{{event.name}}" />
     </div>
-</div>
+    <div>
+        <input type="text" name="content" value="{{event.content}}" />
+    </div>
+    <button class="btn pink" type="submit">Edit Event</button>
+</form>
