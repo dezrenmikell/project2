@@ -10,14 +10,14 @@
        </form>
    </div>
    <h3>{{user.name}}'s Events</h3>
-<a href="/users/{{id}}/events/new">
+<a href="/users/{{user.id}}/events/new">
   <button class="btn small">Create Event</button>
 </a>
 {{#if user.events}}
 <ul class="events">
   {{#each user.events}}
   <div class="card">
-  <a href="/users/{{user.userId}}/events/{{event.id}}"
+  <a href="/users/{{user.id}}/events/{{event.id}}"
     <div class="card-content">
       <img src="{{event.image}}"
       class="card-title" href="/users/{{event.userId}}/events/{{event.eventId}}">
@@ -25,7 +25,7 @@
       </a>
     </div>
     <div class="card-action">
-      <a href="/user/{{ user.id }}/events/{{event.id}}" class="">{{ event.author.local.email }}</a>
+      <a href="/user/{{author}}/events/{{event.id}}" class="">{{ event.author.local.email }}</a>
       <span class="event__date">{{ createdAt }}</span>
       <span class="event_comments">{{ reviews.length }} Reviews</span>
     </div>
