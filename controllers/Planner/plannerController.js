@@ -1,10 +1,10 @@
-const { User } = require("../../models/User");
+const User = require("../../models/User");
 const { Event } = require("../../models/Planner");
 
 const plannerController = {
   index: (req, res) => {
     User.findById(req.params.userId)
-      .populate("events")
+      .populate('events')
       .then(user => {
         res.render("planner/index", {
           userId: req.params.userId,
@@ -15,7 +15,7 @@ const plannerController = {
       });
   },
   new: (req, res) => {
-    res.render("planner/new", {
+    res.render('planner/new', {
       userId: req.params.userId
     });
   },
@@ -37,8 +37,7 @@ const plannerController = {
   },
 
   show: (req, res) => {
-    User.findById(req.params.userId)
-    .populate('events')
+    Event.findById(req.params.eventId)
     .then((event) => {
       res.render("planner/show", {
         event,
@@ -49,7 +48,7 @@ const plannerController = {
   edit: (req, res) => {
     Event.findById(req.params.eventId).then(event => {
     
-      res.render("planner/edit", {
+      res.render('planner/edit', {
         event,
         userId: req.params.userId,
         eventId: req.params.eventId
@@ -68,7 +67,7 @@ const plannerController = {
 
   delete: (req, res) => {
     Event.findByIdAndDelete(req.params.eventId).then(() => {
-      console.log("deleted event");
+      console.log("deleted event")
       res.redirect(`/users/${req.params.userId}`);
     });
   }
