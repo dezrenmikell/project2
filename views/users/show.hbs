@@ -1,6 +1,16 @@
-<h3>{{user.name}}'s Event's</h3>
-<img src={{user.image}}>
-<a href="/users/{{user._id}}/events/new">
+<div class="container">
+   <h2 class="text-center">{{user.name}}</h2>
+   <div class="text-center">
+       <img class="shop-img-banner" src={{user.image}} alt="user">
+   </div>
+   <div class="text-center">
+       <a class="action-btn btn btn-info" href="/users/{{user.id}}/edit">EDIT</a>
+       <form class="delete-form"action="/users/{{user.id}}?_method=DELETE" method="POST">
+           <input class="action-btn btn btn-danger" type="submit" value="DELETE">
+       </form>
+   </div>
+   <h3>{{user.name}}'s Events</h3>
+<a href="/users/{{user.id}}/events/new">
   <button class="btn small">Create Event</button>
 </a>
 {{#if user.events}}
@@ -8,14 +18,14 @@
   {{#each user.events}}
   <div class="card">
     <div class="card-content">
-      <a class="card-title" href="/users/{{../user._id}}/events/{{id}}">
+      <a class="card-title" href="/users/{{user.id}}/events/{{id}}">
         {{ content }}
       </a>
     </div>
     <div class="card-action">
-      <a href="/user/{{ author.id }}" class="">{{ author.local.name }}</a>
+      <a href="/user/{{ author.id }}" class="">{{ author.local.email }}</a>
       <span class="event__date">{{ createdAt }}</span>
-      <span class="event_reviews">{{ reviews.length }} Reviews</span>
+      <span class="event_comments">{{ reviews.length }} Reviews</span>
     </div>
   </div>
   {{/each}}
@@ -27,3 +37,4 @@
   </div>
 </div>
 {{/if}}
+</div>

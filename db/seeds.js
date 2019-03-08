@@ -1,5 +1,5 @@
 const User = require('../models/User')
-const Personnel = require('../models/Personnel')
+const {Statement} = require('../models/Personnel')
 const {Event} = require('../models/Planner')
 const Spectator = require('../models/Spectator')
 // const {Event} = require('../models/Event')
@@ -23,7 +23,7 @@ User.deleteMany()
         const event1Promise = Event.create({
             name: "Paint and Sip",
             content: "An Interactive Paint and Sip event with Poetry",
-            author: User._id,
+            author: brock._id,
             image: "https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/43269753_10213237457350673_3484199512010915840_n.jpg?_nc_cat=107&_nc_ht=scontent-atl3-1.xx&oh=98541d2c780a727fd3c1d384c852c1f5&oe=5CDCDFE8"
         }).then(event => {
             brock.events.push(event)
@@ -31,7 +31,7 @@ User.deleteMany()
         const event2Promise = Event.create({
             name: 'Day Party',
             content: 'A party to promote Poetry Pins',
-            author: User._id,
+            author: brock._id,
             image: "https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/26238998_10211253604715597_8531373911929600517_n.jpg?_nc_cat=103&_nc_ht=scontent-atl3-1.xx&oh=77e862b4063ae5a9bbf9156c5bc66bb2&oe=5D188A76"
         }).then(event=>{
             brock.events.push(event)
@@ -56,7 +56,7 @@ User.deleteMany()
             
             name: "Paint and Sip",
             content: "An Interactive Paint and Sip event with Poetry",
-            author: User._id,
+            author: juice._id,
             image:"https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/43351585_10215314382270151_2009894525291462656_n.jpg?_nc_cat=110&_nc_ht=scontent-atl3-1.xx&oh=7076fdc24449f7e6cde83e0cd1ad711e&oe=5D12C57B"       
             }).then(event => {
             
@@ -66,7 +66,7 @@ User.deleteMany()
             
             name: 'Dopetea and Poetry',
             content: 'A poetry event featuring Dopetea( A brand of tea by Poet-tea and Odinero that contains Kava and Kratom.',
-            author: User._id,
+            author: juice._id,
             image:"https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/43269753_10213237457350673_3484199512010915840_n.jpg?_nc_cat=107&_nc_ht=scontent-atl3-1.xx&oh=98541d2c780a727fd3c1d384c852c1f5&oe=5CDCDFE8"
 
         }).then(event=>{
@@ -92,7 +92,7 @@ User.deleteMany()
             
             name: "Smoke and Paint",
             content: "An Interactive Paint and performance event that includes models, singers, dancers, Hip Hop artists, and more.",
-            author: User._id,
+            author: odinero._id,
             image: "https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/45291708_10205258469457686_7476594393596559360_n.jpg?_nc_cat=106&_nc_ht=scontent-atl3-1.xx&oh=45bd699281a78691f828e4859dd8ecb0&oe=5D2889D5"
         }).then(event => {
             odinero.events.push(event)
@@ -101,7 +101,7 @@ User.deleteMany()
             
             name: 'Dopetea and Poetry',
             content: 'A poetry event featuring Dopetea( A brand of tea by Poet-tea and Odinero that contains Kava and Kratom.',
-            author: User._id,
+            author: odinero._id,
             image: "https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/43269753_10213237457350673_3484199512010915840_n.jpg?_nc_cat=107&_nc_ht=scontent-atl3-1.xx&oh=98541d2c780a727fd3c1d384c852c1f5&oe=5CDCDFE8"
         }).then(event=>{
             odinero.events.push(event)

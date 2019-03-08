@@ -1,4 +1,4 @@
-const User = require("../../models/User");
+const { User } = require("../../models/User");
 const { Event } = require("../../models/Planner");
 
 const plannerController = {
@@ -11,7 +11,7 @@ const plannerController = {
           eventId: req.params.eventId,
           events: user.events,
           name: user.name
-        });
+        })
       });
   },
   new: (req, res) => {
@@ -22,14 +22,11 @@ const plannerController = {
   create: (req, res) => {
     User.findById(req.params.userId)
     .then(user => {
-      Event.create({
-        name: req.body.name,
-        image: req.body.image,
-        content: req.body.content
-      }).then(event => {
-        user.events.push(event);
+      Event.create(req.body)
+      .then(newEvent => {
+        user.events.push(newEvent);
         user.save();
-        res.redirect(`/users/${req.params.userId}/events`);
+        res.redirect(`/users/${req.params.userId}`);
       });
 
       //     .then(()=>res.redirect(`/users/${req.params.userId}/events`,{
@@ -42,16 +39,16 @@ const plannerController = {
   show: (req, res) => {
     User.findById(req.params.userId)
     .populate('events')
-    .then(() => {
+    .then((event) => {
       res.render("planner/show", {
         event,
         userId: req.params.userId,
-        eventId: req.params.eventId
       });
     });
   },
   edit: (req, res) => {
-    Planner.Event.findById(req.params.eventId).then(event => {
+    Event.findById(req.params.eventId).then(event => {
+    
       res.render("planner/edit", {
         event,
         userId: req.params.userId,
@@ -60,20 +57,19 @@ const plannerController = {
     });
   },
   update: (req, res) => {
-    Planner.Event.findByIdAndUpdate(
+    Event.findByIdAndUpdate(
       req.params.eventId,
       { content: req.body.content },
       { new: true }
     ).then(updatedEvent => {
-      updatedEvent.save();
-      res.redirect(`/users/${req.params.userId}/events`);
+      res.redirect(`/users/${req.params.userId}/events/${req.params.eventId}`);
     });
   },
 
   delete: (req, res) => {
-    Planner.Event.findByIdAndDelete(req.params.eventId).then(() => {
+    Event.findByIdAndDelete(req.params.eventId).then(() => {
       console.log("deleted event");
-      res.redirect(`/users/${req.params.userId}/events`);
+      res.redirect(`/users/${req.params.userId}`);
     });
   }
 };

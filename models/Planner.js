@@ -10,12 +10,12 @@ const Review = new Schema({
     },
     author: {
         type: Schema.Types.ObjectId,
-        ref: "Event"
+        ref: "User",
+        
     }
 });
 
 const Event = new Schema({
-    eventId: Number ,
     name: String,
     content: String,
     image: String,
@@ -31,7 +31,7 @@ const Event = new Schema({
     },
     personnel: [{
         type: Schema.Types.ObjectId,
-        ref: "Personnel",
+        ref: "User",
 
     }],
     spectators: [{

@@ -18,6 +18,10 @@ router.post('/users', userController.create)
 
 router.get('/users/:userId', userController.show)
 
+router.get('/users/:userId/edit', userController.edit)
+
+router.put('/users/:userId', userController.update)
+
 router.delete('/users/:userId', userController.delete)
 
 //Planner routes

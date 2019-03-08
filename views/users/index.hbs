@@ -1,11 +1,11 @@
+<div class="container">
+    <a class="btn btn-info" href="/users/new"> Add User</a>
+
+    <h2 class="text-center">Events</h2>
 {{#each users}}
 <div class="card">
     <div class="card-content">
-        <a class="card-title" href="/users/{{id}}">
-        {{name}}
-        {{events}}
-        {{image}}
-        </a>
+        <img class="review-img" src="{{imgLink}}">
     </div>
 </div>
 {{/each}}

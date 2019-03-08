@@ -1,0 +1,28 @@
+<form action="/users/{{user._id}}?_method=PUT" method='POST'>
+    <div>
+        <label for="name">name</label>
+        <input type="text" name="name" id="name" value='{{user.name}}'>
+   </div> 
+   <div>
+        <label for="image">Image</label>
+        <input type="text" name="image" id="image" value='{{user.image}}'>
+   </div> 
+
+    <div>
+         <label for="typez">Typez</label>
+        <input type="text" name="tyez" id="typez" value='{{user.category}}'>
+   </div> 
+
+   <div>
+       <label for="website"> Website</label>
+       <textarea name="website" id = "website" value='{{user.website}}'>
+       </textarea>
+   
+   </div>
+   <div>
+       <label for="email">email</label>
+        <input type="text" name='email' id='email' value='{{email}}'>
+   </div>
+   <input type='submit' value='Submit'>
+
+</form>

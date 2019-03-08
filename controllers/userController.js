@@ -6,30 +6,41 @@ const userController = {
         // Show all users
             User.find()
             .populate('events')
-                res.render('users/index', {users})
+            .then((users)=>{
+            res.render('users/index', {users})
+            })
+                
             
     },
     new: (req, res) => {
         res.render('users/new')
     },
     create: (req, res) => {
-        User.create({
-            name: req.body.name,
-            email: req.body.email,
-            password: req.body.password
-        }).then(user => {
+        User.create(req.body).then(user => {
             res.redirect(`/users/${user._id}`)
         })
     },
     show: (req, res) => {
         User.findById(req.params.userId)
-            .then(user => {
+            .populate('events')
+            .then((user) => {
                 res.render('users/show', {user})
-            })
+            })      
+    },
+    edit: (req,res)=>{
+        User.findById(req.params.userId).then((user)=>{
+            res.render('users/edit',{user})
+        })
+    },
+    update: (req, res)=>{
+        User.findByIdAndUpdate(req.params.userId, req.body,{new:true}).then((updatedUser)=>{
+            console.log(req.body)
+            res.redirect(`/users/${req.params.userId}`)
+        })
     },
     delete: (req, res) => {
         User.findByIdAndDelete(req.params.userId).then(() => {
-            res.send(`Deleted user with user id of ${req.params.userId}`)
+            res.redirect('/')
         })
     }
 }
