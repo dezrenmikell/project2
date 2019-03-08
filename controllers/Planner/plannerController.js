@@ -40,9 +40,10 @@ const plannerController = {
     Event.findById(req.params.eventId)
     .then((event) => {
       res.render("planner/show", {
-        event,
+        
         userId: req.params.userId,
-        eventId: req.params.eventId
+        eventId: req.params.eventId,
+        event
       });
     });
   },
