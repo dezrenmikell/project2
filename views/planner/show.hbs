@@ -12,9 +12,9 @@
         <img src="{{event.image}}" alt="EVENT IMAGE">
         
             <button class="btn pink">Edit</button>
-            <a class="action-btn btn btn-info" href="/users/{{userId}}/events/{{eventId}}/edit">EDIT</a>
+            <a class="action-btn btn btn-info" href="/users/{{event.userId}}/events/{{event.eventId}}/edit">EDIT</a>
         
-        <form action="/users/{{userId}}/events/{{event.eventId}}?_method=DELETE" method="POST">
+        <form action="/users/{{event.userId}}/events/{{event.eventId}}?_method=DELETE" method="POST">
             <button class="btn pink">Delete</button>
         </form>
     </div>

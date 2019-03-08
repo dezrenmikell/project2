@@ -19,12 +19,12 @@
   <div class="card">
     <div class="card-content">
       <img src="{{event.image}}"
-      <a class="card-title" href="/users/{{user.id}}/events/{{id}}">
+      <a class="card-title" href="/users/{{user.id}}/events/{{event.id}}">
         {{ content }}
       </a>
     </div>
     <div class="card-action">
-      <a href="/user/{{ event..author.id }}" class="">{{ event.author.local.email }}</a>
+      <a href="/user/{{ event.author.id }}" class="">{{ event.author.local.email }}</a>
       <span class="event__date">{{ createdAt }}</span>
       <span class="event_comments">{{ reviews.length }} Reviews</span>
     </div>
