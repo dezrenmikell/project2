@@ -9,11 +9,11 @@
 
 <div class="card">
     <div class="card-content">
-        <img src="{{event.image}}" alt="EVENT IMAGE"
-        <a href="/users/{{userId}}/events/{{event._id}}/edit">
+        <img src="{{event.image}}" alt="EVENT IMAGE">
+        <a href="/users/{{userId}}/events/{{eventId}}/edit">
             <button class="btn pink">Edit</button>
         </a>
-        <form action="/users/{{userId}}/events/{{event._id}}?_method=DELETE" method="POST">
+        <form action="/users/{{userId}}/events/{{id}}?_method=DELETE" method="POST">
             <button class="btn pink">Delete</button>
         </form>
     </div>

@@ -4,12 +4,12 @@ const { Event } = require("../../models/Planner");
 const plannerController = {
   index: (req, res) => {
     User.findById(req.params.userId)
-      .populate('events')
+      // .populate('events')
       .then(user => {
         res.render("planner/index", {
           userId: req.params.userId,
           eventId: req.params.eventId,
-          events: user.events,
+          events: req.body.events,
           name: user.name
         })
       });
@@ -42,6 +42,7 @@ const plannerController = {
       res.render("planner/show", {
         event,
         userId: req.params.userId,
+        eventId: req.params.eventId
       });
     });
   },
@@ -58,7 +59,7 @@ const plannerController = {
   update: (req, res) => {
     Event.findByIdAndUpdate(
       req.params.eventId,
-      { content: req.body.content },
+      req.body,
       { new: true }
     ).then(updatedEvent => {
       res.redirect(`/users/${req.params.userId}/events/${req.params.eventId}`);
@@ -66,11 +67,16 @@ const plannerController = {
   },
 
   delete: (req, res) => {
+    User.findById(req.params.userId).then((user)=>{
+      user.events.filter(eventId=> eventId !== req.params.eventId)
+      user.save()
+    })
+    .then(()=>{
     Event.findByIdAndDelete(req.params.eventId).then(() => {
       console.log("deleted event")
-      res.redirect(`/users/${req.params.userId}`);
-    });
-  }
-};
+      res.redirect(`/users/${req.params.userId}`)
+    })
+  })
+}
 
 module.exports = plannerController;

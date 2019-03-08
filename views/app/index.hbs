@@ -3,7 +3,7 @@
     {{#each events}}
       <div class="card" class="">
         <div class="card-content">
-          <a class="card-title" href="/users/{{user.id}}/">
+          <a class="card-title" href="/users/{{author}}/">
             
             <img src="{{image}}" width="250" height="250">
             </br>
@@ -11,7 +11,7 @@
           </a>
         </div>
         <div class="card-action">
-          <a href="/users/{{id}}/events/{{user.userId}}" class="">{{ email }}</a>
+          <a href="/users/{{author}}/events/{{id}}" class="">{{ author }}</a>
           <span class="event__date">{{ createdAt }}</span>
           <span class="event_reviews">{{ reviews.length }} Reviews</span>
         </div>
