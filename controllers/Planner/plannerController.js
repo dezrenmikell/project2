@@ -10,7 +10,7 @@ const plannerController = {
           userId: req.params.userId,
           eventId: req.params.eventId,
           events: req.body.events,
-          name: user.name
+          name: req.body.name
         })
       });
   },
