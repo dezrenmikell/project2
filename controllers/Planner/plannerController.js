@@ -78,5 +78,6 @@ const plannerController = {
     })
   })
 }
+}
 
 module.exports = plannerController;
