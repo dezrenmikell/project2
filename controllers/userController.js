@@ -34,7 +34,6 @@ const userController = {
     },
     update: (req, res)=>{
         User.findByIdAndUpdate(req.params.userId, req.body,{new:true}).then((updatedUser)=>{
-            console.log(req.body)
             res.redirect(`/users/${req.params.userId}`)
         })
     },

@@ -24,6 +24,7 @@ const plannerController = {
     .then(user => {
       Event.create(req.body)
       .then(newEvent => {
+        
         user.events.push(newEvent);
         user.save();
         res.redirect(`/users/${req.params.userId}`);
@@ -41,9 +42,9 @@ const plannerController = {
     .then((event) => {
       res.render("planner/show", {
         
-        userId: req.params.userId,
-        eventId: req.params.eventId,
-        event
+        event,userId: req.params.userId,
+        eventId: req.params.eventId
+        
       });
     });
   },
@@ -74,7 +75,6 @@ const plannerController = {
     })
     .then(()=>{
     Event.findByIdAndDelete(req.params.eventId).then(() => {
-      console.log("deleted event")
       res.redirect(`/users/${req.params.userId}`)
     })
   })
