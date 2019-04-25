@@ -3,6 +3,12 @@
 This is a program made to allow different artists and spectators to find events   
 [Visit Site](https://radiant-eyrie-22351.herokuapp.com)
 
+## WireFrames
+  ![image](https://i.imgur.com/0EYKix8.png)
+  ![image](https://i.imgur.com/ZIRmilh.png)
+  ![image](https://i.imgur.com/XMoRzQk.png)
+
+
 ## Technologies Used
   * VS Code
   * Sublime Text

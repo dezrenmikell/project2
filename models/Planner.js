@@ -29,16 +29,6 @@ const Event = new Schema({
         events: [],
         needs: [],
     },
-    personnel: [{
-        type: Schema.Types.ObjectId,
-        ref: "User",
-
-    }],
-    spectators: [{
-        type: Schema.Types.ObjectId,
-        ref: "Spectator",
-    }],
-    reviews: [Review]
 });
 
 module.exports = {
