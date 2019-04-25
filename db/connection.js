@@ -2,10 +2,6 @@
 require('dotenv').config()
 const mongoose = require("mongoose")
 
-// mongoose.connect("process.env.MONGODB_URI").then(() => {
-//   console.log("MONGODB is now connected")
-// })
-
 // Connect to database
 if (process.env.MONGODB_URI) {
   mongoose.connect(process.env.MONGODB_URI);
